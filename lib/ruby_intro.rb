@@ -114,4 +114,36 @@ end
 
 class BookInStock
 # YOUR CODE HERE
+
+    def initialize(isbn, price)
+        raise ArgumentError.new( "no isbn given" ) if isbn.length() == 0
+        raise ArgumentError.new( "price cannot be negative" ) if price <= 0
+        @isbn = isbn
+        @price = price
+    end
+    
+    def isbn
+        return @isbn
+    end
+    
+    def price   
+        return @price
+    end
+    
+    def isbn=(isbn)
+        @isbn = isbn
+    end
+    
+    def price=(price)
+        @price = price
+    end
+    
+    def price_as_string
+        @price = '%.2f' % @price 
+        priceString = @price.to_s
+        solution = "$"
+        solution << priceString
+        
+        return solution
+    end
 end
